@@ -65,9 +65,7 @@ func compile(pkg, opsys, arch string, ch chan string) {
 	args := []string{"go", "build", "-o", output, pkg}
 
 	cmd := exec.Command(args[0], args[1:]...)
-	env := os.Environ()
-	env = append(env, "GOOS="+opsys, "GOARCH="+arch)
-	cmd.Env = env
+	cmd.Env = append(cmd.Environ(), "GOOS="+opsys, "GOARCH="+arch)
 
 	err := cmd.Run()
 	if err != nil {
