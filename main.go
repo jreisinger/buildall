@@ -18,7 +18,7 @@ func main() {
 	log.SetFlags(0)
 
 	if len(os.Args[1:]) != 1 {
-		log.Fatal("supply a .go file to build binaries from")
+		log.Fatal("supply a .go source file to build binaries from")
 	}
 	pkg := os.Args[1]
 
